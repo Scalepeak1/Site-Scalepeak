@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahrez Aouadj — Founder, SCALEPEAK LLC</title>
+  <meta name="description" content="Mahrez Aouadj is the founder and managing director of SCALEPEAK LLC, a Wyoming-registered e-commerce holding company." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:           #FFFFFF;
+      --bg-alt:       #F7F9FC;
+      --navy:         #1A3A6B;
+      --accent:       #2B6BE6;
+      --body-text:    #374151;
+      --muted:        #9CA3AF;
+      --border:       #E5E7EB;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+
+      --section-pad:  100px;
+      --content-max:  1080px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--body-text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    .section-pad { padding: var(--section-pad) 0; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* ── Navbar ──────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .nav-logo .scale { font-weight: 700; color: var(--navy); }
+    .nav-logo .peak  { font-weight: 700; color: var(--accent); }
+    .nav-logo .llc   { font-weight: 400; color: var(--muted); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--body-text);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--navy);
+      transition: 0.25s;
+    }
+
+    /* ── Breadcrumb ──────────────────────────────────────────────── */
+    .breadcrumb {
+      padding-top: 88px;
+      padding-bottom: 0;
+    }
+    .breadcrumb a {
+      color: var(--muted);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--navy); }
+
+    /* ── Founder Hero ────────────────────────────────────────────── */
+    .founder-hero {
+      padding-top: 40px;
+    }
+    .founder-hero-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .founder-page-photo {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 4/5;
+      background: #E5E7EB;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .founder-page-photo span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .founder-hero-info .eyebrow { margin-bottom: 12px; }
+    .founder-hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .founder-hero-title {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .founder-hero-context {
+      font-size: 0.95rem;
+      color: var(--body-text);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    /* ── Journey ─────────────────────────────────────────────────── */
+    .journey-body {
+      max-width: 680px;
+      margin-top: 32px;
+    }
+    .journey-body p + p { margin-top: 20px; }
+
+    /* ── Feature blocks (reused from homepage) ───────────────────── */
+    .feature-blocks { border-top: 1px solid var(--border); margin-top: 48px; }
+    .feature-block {
+      display: flex;
+      align-items: baseline;
+      gap: 48px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      min-width: 260px;
+      line-height: 1.4;
+    }
+    .feature-text {
+      font-size: 0.95rem;
+      color: var(--body-text);
+      line-height: 1.7;
+    }
+
+    /* ── At a glance ─────────────────────────────────────────────── */
+    .glance-table {
+      max-width: 600px;
+      margin-top: 40px;
+    }
+    .glance-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .glance-row:last-child { border-bottom: none; }
+    .glance-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .glance-value {
+      color: var(--navy);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    /* ── Contact ─────────────────────────────────────────────────── */
+    .contact-email-large {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-block;
+      transition: opacity 0.2s;
+      margin-top: 24px;
+    }
+    .contact-email-large:hover { opacity: 0.75; }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+    .footer-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 0;
+    }
+    .footer-logo .scale { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+    .footer-logo .peak  { font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+    .footer-logo .llc   { font-weight: 400; color: var(--muted); font-size: 0.95rem; }
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+    .footer-contact {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .footer-bar {
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .founder-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .founder-page-photo { max-width: 260px; }
+      .feature-block { flex-direction: column; gap: 8px; }
+      .feature-title { min-width: unset; }
+      .footer-main { flex-direction: column; gap: 20px; text-align: center; }
+      .glance-row { gap: 16px; }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      .section-pad { padding: 64px 24px; }
+      .breadcrumb { padding-top: 80px; }
+      .founder-hero { padding-top: 24px; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0; right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 14px 24px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-toggle { display: flex; }
+    }
+
+    @media (max-width: 375px) {
+      .founder-hero-name { font-size: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Navbar ─────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <span class="scale">SCALE</span><span class="peak">PEAK</span><span class="llc"> LLC</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#brands">Brands</a></li>
+          <li><a href="index.html#vision">Vision</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── Breadcrumb ──────────────────────────────────────────────── -->
+    <div class="container breadcrumb">
+      <a href="index.html">← Back to SCALEPEAK LLC</a>
+    </div>
+
+    <!-- ── Founder Hero ───────────────────────────────────────────── -->
+    <section class="container founder-hero">
+      <div class="founder-hero-grid">
+        <div class="founder-page-photo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>
+          </svg>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="founder-hero-info">          <h1 class="founder-hero-name">Mahrez Aouadj</h1>
+          <div class="founder-hero-title">Founder &amp; Managing Director, SCALEPEAK LLC</div>
+          <p class="founder-hero-context">Building consumer brands in the pet care and health &amp; wellness space, with a focus on long-term growth across Europe and the United States.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── The Journey ────────────────────────────────────────────── -->
+    <section id="journey" style="background: var(--bg);">
+      <div class="container section-pad">        <h2 class="section-h2 reveal">From idea to infrastructure.</h2>
+        <div class="journey-body">
+          <p class="reveal">Mahrez started building Kriath with a simple observation: dog owners across Europe were underserved when it came to high-quality, liquid-format supplements. Most products on the market were powders or chews that dogs often refused, or formulations that simply did not absorb well. Kriath was built to solve that specific problem.</p>
+          <p class="reveal">What started as a single product line grew into a real business with thousands of customers across France, Belgium and Switzerland. Rather than chase rapid expansion, Mahrez focused on getting the fundamentals right: product quality, customer service, and operational consistency.</p>
+          <p class="reveal">SCALEPEAK LLC was incorporated in Wyoming to formalize that work and build the infrastructure needed for the next phase: expanding into new product categories and, eventually, into the United States market.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── What Guides the Work ───────────────────────────────────── -->
+    <section id="beliefs" style="background: var(--bg-alt);">
+      <div class="container section-pad">        <h2 class="section-h2 reveal">A few things I believe in.</h2>
+        <div class="feature-blocks">
+          <div class="feature-block reveal">
+            <div class="feature-title">Build for the customer, not the metrics.</div>
+            <p class="feature-text">Every decision starts with whether it genuinely improves the customer's experience, not whether it looks good on a dashboard.</p>
+          </div>
+          <div class="feature-block reveal">
+            <div class="feature-title">Operational discipline compounds.</div>
+            <p class="feature-text">Small, consistent improvements in how a business runs matter more than any single big move.</p>
+          </div>
+          <div class="feature-block reveal">
+            <div class="feature-title">Patience is a strategy.</div>
+            <p class="feature-text">The brands worth building take years, not months. I would rather grow slowly and correctly than quickly and carelessly.</p>
+          </div>
+          <div class="feature-block reveal">
+            <div class="feature-title">Structure enables ambition.</div>
+            <p class="feature-text">Getting the legal and financial foundation right, like incorporating SCALEPEAK LLC, is what makes future growth possible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── At a Glance ────────────────────────────────────────────── -->
+    <section id="glance" style="background: var(--bg);">
+      <div class="container section-pad">        <h2 class="section-h2 reveal">A quick overview.</h2>
+        <div class="glance-table reveal">
+          <div class="glance-row">
+            <span class="glance-label">Role</span>
+            <span class="glance-value">Founder &amp; Managing Director</span>
+          </div>
+          <div class="glance-row">
+            <span class="glance-label">Company</span>
+            <span class="glance-value">SCALEPEAK LLC</span>
+          </div>
+          <div class="glance-row">
+            <span class="glance-label">Active brand</span>
+            <span class="glance-value">Kriath (kriath.fr)</span>
+          </div>
+          <div class="glance-row">
+            <span class="glance-label">Industry</span>
+            <span class="glance-value">Pet Care &amp; Health</span>
+          </div>
+          <div class="glance-row">
+            <span class="glance-label">Current markets</span>
+            <span class="glance-value">France, Belgium, Switzerland</span>
+          </div>
+          <div class="glance-row">
+            <span class="glance-label">Next chapter</span>
+            <span class="glance-value">United States expansion</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ────────────────────────────────────────────────── -->
+    <section id="contact" style="background: var(--bg-alt);">
+      <div class="container section-pad">        <h2 class="section-h2 reveal">Reach out directly.</h2>
+        <p class="reveal" style="margin-top: 24px; max-width: 580px;">For partnership inquiries, supplier relationships, or any verification needed regarding SCALEPEAK LLC, the best way to reach me is by email.</p>
+        <a href="mailto:contact@scalepeakllc.com" class="contact-email-large reveal">contact@scalepeakllc.com</a>
+        <div class="reveal" style="margin-top: 20px; font-family: 'Inter', system-ui, sans-serif; font-size: 0.9rem; color: #9CA3AF; line-height: 1.9; border-left: 2px solid #E5E7EB; padding-left: 16px;">
+          SCALEPEAK LLC<br>
+          30 N Gould St Ste 100<br>
+          Sheridan, WY 82801<br>
+          United States
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-logo">
+          <span class="scale">SCALE</span><span class="peak">PEAK</span><span class="llc"> LLC</span>
+        </div>
+        <div class="footer-tagline">Tomorrow's E-Commerce Brands, Built Today.</div>
+        <div class="footer-contact">contact@scalepeakllc.com</div>
+      </div>
+      <div class="footer-bar">
+        © 2026 SCALEPEAK LLC &nbsp;·&nbsp; 30 N Gould St Ste 100, Sheridan, WY 82801, USA
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var nav = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    var toggle = document.getElementById('navToggle');
+    var links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { links.classList.remove('open'); });
+    });
+
+    var revealEls = document.querySelectorAll('.reveal');
+    var observer  = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    revealEls.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>
